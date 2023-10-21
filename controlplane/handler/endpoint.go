@@ -27,14 +27,17 @@ func (h *EndpointHandler) Create(w http.ResponseWriter, r *http.Request) {
 	var req in.CreateEndpointRequest
 	err := json.NewDecoder(r.Body).Decode(&req)
 	if err != nil {
-		logrus.Error("CreateEndpoint bad request", err)
+		logrus.Error("CreateEndpoint bad request ", err)
 		http.Error(w, err.Error(), http.StatusBadRequest)
+		return
 	}
 
-	apiID, err := uuid.FromBytes([]byte(mux.Vars(r)["apiId"]))
+	idString := mux.Vars(r)["apiId"]
+	apiID, err := uuid.Parse(idString)
 	if err != nil {
-		logrus.Error("CreateEndpoint bad request. Invalid apiID", err)
+		logrus.Errorf("CreateEndpoint bad request. Invalid apiID: [%s] ", idString)
 		http.Error(w, err.Error(), http.StatusBadRequest)
+		return
 	}
 
 	endpoint := &model.Endpoint{
@@ -48,6 +51,7 @@ func (h *EndpointHandler) Create(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		logrus.Error("CreateEndpoint failed", err)
 		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
 	}
 
 	res := &out.CreateEndpointResponse{ID: id}

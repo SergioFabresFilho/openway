@@ -25,7 +25,7 @@ func (h *ApiHandler) Create(w http.ResponseWriter, r *http.Request) {
 	var req in.CreateApiRequest
 	err := json.NewDecoder(r.Body).Decode(&req)
 	if err != nil {
-		logrus.Error("CreateApi bad request", err)
+		logrus.Error("CreateApi bad request ", err)
 		http.Error(w, err.Error(), http.StatusBadRequest)
 	}
 
@@ -38,7 +38,7 @@ func (h *ApiHandler) Create(w http.ResponseWriter, r *http.Request) {
 
 	id, err := h.apiService.Create(api)
 	if err != nil {
-		logrus.Error("CreateApi failed", err)
+		logrus.Error("CreateApi failed ", err)
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 	}
 
