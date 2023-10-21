@@ -15,7 +15,7 @@ func EndpointToEntity(endpoint *model.Endpoint) *entity.Endpoint {
 	}
 }
 
-func EncpointToModel(endpoint *entity.Endpoint) *model.Endpoint {
+func EndpointToModel(endpoint *entity.Endpoint) *model.Endpoint {
 	return &model.Endpoint{
 		ID:          endpoint.ID,
 		Description: endpoint.Description,
