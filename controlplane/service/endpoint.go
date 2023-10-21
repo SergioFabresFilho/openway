@@ -2,7 +2,7 @@ package service
 
 import (
 	"github.com/google/uuid"
-	"ssff.com.br/openway/controlplane/model"
+	"ssff.com.br/openway/common/model"
 	"ssff.com.br/openway/controlplane/repository"
 )
 

@@ -1,8 +1,8 @@
 package mapper
 
 import (
-	"ssff.com.br/openway/controlplane/entity"
-	"ssff.com.br/openway/controlplane/model"
+	"ssff.com.br/openway/common/entity"
+	"ssff.com.br/openway/common/model"
 )
 
 func ApiToEntity(api *model.Api) *entity.Api {

@@ -5,9 +5,9 @@ import (
 	"net/http"
 
 	"github.com/sirupsen/logrus"
+	"ssff.com.br/openway/common/model"
 	"ssff.com.br/openway/controlplane/handler/in"
 	"ssff.com.br/openway/controlplane/handler/out"
-	"ssff.com.br/openway/controlplane/model"
 	"ssff.com.br/openway/controlplane/service"
 )
 

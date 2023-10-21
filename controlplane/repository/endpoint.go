@@ -4,9 +4,9 @@ import (
 	"github.com/google/uuid"
 	"github.com/sirupsen/logrus"
 	"gorm.io/gorm"
-	"ssff.com.br/openway/controlplane/db"
-	"ssff.com.br/openway/controlplane/mapper"
-	"ssff.com.br/openway/controlplane/model"
+	"ssff.com.br/openway/common/db"
+	"ssff.com.br/openway/common/mapper"
+	"ssff.com.br/openway/common/model"
 )
 
 type EndpointRepository struct {
